@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蒋凯瑞 | 品牌文案策划 · 8年经验</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Helvetica Neue",sans-serif;
+  background:#fbfbfd;color:#1d1d1f;line-height:1.6;
+  -webkit-font-smoothing:antialiased
+}
+
+/* ===== 导航栏 ===== */
+.navbar{
+  position:fixed;top:0;width:100%;
+  background:rgba(251,251,253,0.8);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  z-index:1000;padding:0 40px;height:52px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid rgba(0,0,0,0.08);
+}
+.nav-logo{font-size:18px;font-weight:600;color:#1d1d1f;text-decoration:none;letter-spacing:-0.3px}
+.nav-logo .nav-signature{font-size:14px;font-weight:400;color:#6ea8d8;letter-spacing:0;margin-left:10px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:#1d1d1f;text-decoration:none;font-size:13px;opacity:0.7;transition:all 0.25s ease;padding:6px 14px;border-radius:16px}
+.nav-links a:hover{opacity:1}
+.nav-links a.active{opacity:1;background:linear-gradient(135deg,rgba(0,113,227,0.10),rgba(0,113,227,0.04));color:#0071e3;font-weight:600}
+
+/* ===== Hero ===== */
+.hero{
+  padding:120px 40px 64px;text-align:center;background:#fbfbfd;
+  display:flex;flex-direction:column;align-items:center
+}
+.hero-photo{
+  width:120px;height:120px;border-radius:50%;overflow:hidden;
+  background:linear-gradient(135deg,#e8e8ed,#f5f5f7);
+  box-shadow:0 6px 32px rgba(0,0,0,0.09),0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom:24px;
+  animation:fadeUp 0.8s ease;
+  border:3px solid rgba(255,255,255,0.8);
+  position:relative
+}
+.hero-photo::after{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  box-shadow:inset 0 1px 3px rgba(0,0,0,0.08);
+  pointer-events:none
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hero h1{
+  font-size:64px;font-weight:700;letter-spacing:-1.5px;color:#1d1d1f;margin-bottom:12px;
+  animation:fadeUp 0.8s 0.1s ease both
+}
+.hero .tagline{font-size:24px;color:#86868b;font-weight:400;margin-bottom:8px;animation:fadeUp 0.8s 0.15s ease both}
+.hero .contact-row{font-size:16px;color:#86868b;margin-top:24px;animation:fadeUp 0.8s 0.25s ease both}
+.hero .contact-row span{margin:0 12px}
+
+/* ===== 通用区块 ===== */
+.section{padding:64px 40px;max-width:1300px;margin:0 auto}
+.section-alt{background:#fbfbfd;padding:64px 0}
+.section-alt .section-inner{max-width:1300px;margin:0 auto;padding:0 40px}
+.section-label{font-size:13px;font-weight:600;color:#0071e3;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.section-title{font-size:44px;font-weight:700;letter-spacing:-1px;color:#1d1d1f;margin-bottom:12px;line-height:1.1}
+.section-subtitle{font-size:18px;color:#86868b;font-weight:400;margin-bottom:40px;line-height:1.5}
+
+/* ===== 关于我 ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.about-text{font-size:15px;color:#1d1d1f;line-height:1.75}
+.about-text strong{font-weight:600;color:#0071e3}
+.about-info{background:#fff;border-radius:20px;padding:28px;box-shadow:0 2px 20px rgba(0,0,0,0.04)}
+.about-info .info-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #f5f5f7;font-size:14px}
+.about-info .info-row:last-child{border-bottom:none}
+.about-info .info-label{color:#86868b;font-weight:500}
+.about-info .info-value{color:#1d1d1f;font-weight:500}
+
+/* ========== 工作经历 — Apple Store 卡片轮播 ========== */
+.exp-carousel-wrap{position:relative;padding:0 48px}
+.exp-store-carousel{position:relative;overflow:hidden;touch-action:pan-y pinch-zoom}
+.exp-store-track{display:flex;gap:0;transition:transform 0.55s cubic-bezier(0.22,1,0.36,1);will-change:transform}
+.exp-store-slide{flex:0 0 calc(33.333% - 16px);min-width:300px;margin-right:24px}
+.exp-store-slide:last-child{margin-right:0}
+
+/* 单张卡片 */
+.exp-store-card{
+  background:#fff;border-radius:20px;overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,0.10),0 1px 4px rgba(0,0,0,0.06);
+  transition:transform 0.35s ease,box-shadow 0.35s ease;
+  cursor:pointer;height:100%;display:flex;flex-direction:column
+}
+.exp-store-card:hover{transform:scale(1.03);box-shadow:0 16px 48px rgba(0,0,0,0.14),0 2px 8px rgba(0,0,0,0.08);z-index:1}
+.exp-store-card .card-accent{height:4px;width:100%;flex-shrink:0}
+.exp-store-card .card-body{padding:24px 24px 20px;flex:1;display:flex;flex-direction:column;min-height:0}
+.exp-store-card .card-tag{
+  display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.5px;
+  padding:3px 10px;border-radius:12px;margin-bottom:14px;width:fit-content
+}
+.exp-store-card .card-company{font-size:20px;font-weight:700;color:#1d1d1f;letter-spacing:-0.3px;margin-bottom:6px;line-height:1.3}
+.exp-store-card .card-role{font-size:14px;color:#86868b;margin-bottom:2px}
+.exp-store-card .card-period{font-size:13px;color:#0071e3;font-weight:500;margin-bottom:14px}
+.exp-store-card .card-desc{font-size:14px;color:#6e6e73;line-height:1.6;margin-bottom:14px}
+.exp-store-card .card-desc strong{color:#1d1d1f;font-weight:600}
+.exp-store-card .card-bullets{list-style:none;padding:0;margin:0 0 14px}
+.exp-store-card .card-bullets li{
+  font-size:13px;color:#1d1d1f;line-height:1.55;padding:4px 0 4px 14px;
+  position:relative;margin-bottom:2px
+}
+.exp-store-card .card-bullets li::before{content:'';position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:#d2d2d7}
+.exp-store-card .card-leave{
+  font-size:11px;color:#aeaeb2;line-height:1.5;padding-top:12px;border-top:1px solid #f5f5f7;margin-top:auto
+}
+.exp-store-card .card-leave b{color:#1d1d1f;font-weight:600}
+
+/* 左右悬浮毛玻璃箭头 */
+.exp-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:52px;height:52px;border-radius:50%;border:none;
+  background:rgba(255,255,255,0.55);
+  backdrop-filter:saturate(180%) blur(16px);
+  -webkit-backdrop-filter:saturate(180%) blur(16px);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all 0.25s ease;font-size:30px;font-weight:900;color:#0071e3;outline:none;
+  z-index:10;box-shadow:0 2px 16px rgba(0,0,0,0.06)
+}
+.exp-arrow:hover{
+  background:rgba(255,255,255,0.85);
+  box-shadow:0 4px 24px rgba(0,0,0,0.10);transform:translateY(-50%) scale(1.06)
+}
+.exp-arrow:disabled{opacity:0.15;cursor:default;pointer-events:none;transform:translateY(-50%)}
+.exp-arrow-prev{left:-28px}
+.exp-arrow-next{right:-28px}
+.exp-dots-row{display:flex;justify-content:center;gap:8px;margin-top:28px}
+.exp-dots-row .carousel-dot{
+  width:8px;height:8px;border-radius:50%;background:#d2d2d7;border:none;cursor:pointer;transition:all 0.3s;padding:0
+}
+.exp-dots-row .carousel-dot.active{background:#0071e3;width:24px;border-radius:4px}
+
+/* ===== 技能雷达星座图 ===== */
+.skills-radar-wrap{
+  display:flex;align-items:center;justify-content:center;
+  gap:60px;flex-wrap:wrap;margin-top:20px
+}
+.skills-radar-svg{flex-shrink:0}
+/* SVG 内部样式 */
+.skills-radar-svg .radar-grid{fill:none;stroke:#e8e8ed;stroke-width:1}
+.skills-radar-svg .radar-grid-50{stroke:#d2d2d7;stroke-dasharray:4 4}
+.skills-radar-svg .radar-axis{stroke:#e8e8ed;stroke-width:1}
+.skills-radar-svg .radar-fill{
+  fill:rgba(0,113,227,0.12);stroke:#0071e3;stroke-width:2.5;
+  stroke-linejoin:round;transition:all 0.6s ease
+}
+.skills-radar-svg .radar-dot{fill:#0071e3;transition:transform 0.3s ease}
+.skills-radar-svg .radar-dot:hover{transform:scale(1.4)}
+.skills-radar-svg .radar-label{font-size:13px;fill:#1d1d1f;font-weight:600;text-anchor:middle;dominant-baseline:middle}
+.skills-radar-svg .radar-pct{font-size:11px;fill:#0071e3;font-weight:700;text-anchor:middle}
+.skills-radar-svg .radar-center-dot{fill:#0071e3;opacity:0.6;animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:0.4;r:4}50%{opacity:0.8;r:6}}
+.skills-radar-svg .radar-ring{fill:none;stroke:#0071e3;stroke-width:1;opacity:0.15;animation:pulse-ring 3s ease-in-out infinite}
+@keyframes pulse-ring{0%,100%{opacity:0.08;r:28}50%{opacity:0.2;r:38}}
+
+/* 技能详情卡片（雷达图右侧） */
+.skills-detail-cards{display:flex;flex-direction:column;gap:14px;min-width:240px}
+.skills-detail-cards .sd-card{
+  display:flex;align-items:center;gap:14px;padding:14px 20px;
+  background:#fff;border-radius:14px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.03);
+  transition:all 0.3s ease;cursor:default;
+  border-left:3px solid transparent
+}
+.skills-detail-cards .sd-card:hover{
+  transform:translateX(8px);box-shadow:0 6px 24px rgba(0,0,0,0.08);
+  border-left-color:#0071e3
+}
+.sd-card .sd-icon{font-size:26px;flex-shrink:0}
+.sd-card .sd-info{flex:1;min-width:0}
+.sd-card .sd-name{font-size:15px;font-weight:600;color:#1d1d1f;margin-bottom:2px}
+.sd-card .sd-desc{font-size:12px;color:#86868b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sd-card .sd-score{
+  font-size:28px;font-weight:700;color:#0071e3;
+  opacity:0.85;flex-shrink:0;min-width:48px;text-align:right
+}
+.sd-card .sd-ring-wrap{flex-shrink:0;width:40px;height:40px;position:relative}
+.sd-card .sd-ring-wrap svg{width:40px;height:40px;transform:rotate(-90deg)}
+.sd-card .sd-ring-wrap .sd-ring-bg{fill:none;stroke:#f5f5f7;stroke-width:3}
+.sd-card .sd-ring-wrap .sd-ring-fg{fill:none;stroke:#0071e3;stroke-width:3;stroke-linecap:round;transition:stroke-dashoffset 1.5s ease}
+
+/* ===== 作品展示 — Apple Store 卡片轮播 ===== */
+.portfolio-section{background:#f5f5f7;padding:64px 0}
+.portfolio-section .section-inner{max-width:1300px;margin:0 auto;padding:0 40px}
+.portfolio-category{margin-bottom:40px}
+.portfolio-category h3{font-size:22px;font-weight:600;color:#1d1d1f;margin-bottom:4px}
+
+/* 卡片轮播容器 */
+.carousel-track{display:flex;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);will-change:transform}
+.carousel-slide{flex:0 0 100%;min-width:0}
+.portfolio-carousel{position:relative;overflow:hidden;touch-action:pan-y pinch-zoom;margin-top:16px;padding:8px 8px 16px 8px;margin-left:-8px;margin-right:-8px}
+.portfolio-carousel .carousel-track{gap:16px}
+.portfolio-carousel .carousel-slide{flex:0 0 calc(25% - 12px);min-width:220px}
+
+/* 单张图片卡片 */
+.pf-card{
+  background:#fff;border-radius:14px;overflow:hidden;
+  box-shadow:0 4px 16px rgba(0,0,0,0.14),0 1px 4px rgba(0,0,0,0.08);
+  transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),box-shadow 0.35s ease;
+  cursor:pointer;position:relative
+}
+.pf-card::after{
+  content:'';position:absolute;inset:-24px;border-radius:32px;
+  background:rgba(0,0,0,0.12);
+  filter:blur(48px);z-index:-1;
+  opacity:0;transition:opacity 0.4s ease;
+}
+.pf-card:hover{transform:scale(1.04);box-shadow:0 8px 28px rgba(0,0,0,0.08),0 2px 6px rgba(0,0,0,0.04)}
+.pf-card:hover::after{opacity:1}
+.pf-card img{width:100%;display:block;object-fit:cover;transition:transform 0.4s ease}
+.pf-card:hover img{transform:scale(1.04)}
+/* 竖版板块：5张一行 */
+.portfolio-carousel.pf-type-portrait .carousel-slide{flex:0 0 calc(20% - 13px);min-width:160px}
+/* 横版板块：4张一行 */
+.portfolio-carousel.pf-type-landscape .carousel-slide{flex:0 0 calc(25% - 12px);min-width:240px}
+
+/* 图片灯箱 */
+.pf-lightbox{
+  position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0.85);backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  opacity:0;pointer-events:none;transition:opacity 0.3s ease
+}
+.pf-lightbox.active{opacity:1;pointer-events:auto}
+.pf-lightbox img{max-width:92vw;max-height:92vh;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.5);transform:scale(0.9);transition:transform 0.3s ease}
+.pf-lightbox.active img{transform:scale(1)}
+.pf-lightbox .pf-close{
+  position:absolute;top:24px;right:32px;width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,0.15);border:none;cursor:pointer;
+  color:#fff;font-size:28px;display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s
+}
+.pf-lightbox .pf-close:hover{background:rgba(255,255,255,0.3)}
+
+/* 轮播箭头 — 毛玻璃蓝色 */
+.pf-arrows{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:4px}
+.pf-arrow{
+  width:38px;height:38px;border-radius:50%;border:none;
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:saturate(180%) blur(12px);
+  -webkit-backdrop-filter:saturate(180%) blur(12px);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s ease;font-size:22px;font-weight:900;color:#0071e3;outline:none;
+  box-shadow:0 2px 10px rgba(0,0,0,0.04)
+}
+.pf-arrow:hover{background:rgba(255,255,255,0.9);box-shadow:0 4px 16px rgba(0,0,0,0.08);transform:scale(1.06)}
+.pf-arrow:disabled{opacity:0.12;cursor:default;pointer-events:none}
+
+/* ===== 个人兴趣 ===== */
+.interest-section{background:#fbfbfd;padding:64px 40px}
+.interest-inner{max-width:1300px;margin:0 auto}
+.interest-header{text-align:center;margin-bottom:48px}
+.interest-header h2{font-size:40px;font-weight:700;color:#1d1d1f;margin-bottom:12px;letter-spacing:-1px}
+.interest-header p{font-size:18px;color:#86868b}
+.interest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.interest-card{text-align:center;padding:40px 24px;background:#fff;border-radius:20px;box-shadow:0 2px 16px rgba(0,0,0,0.03);transition:transform 0.3s ease}
+.interest-card:hover{transform:translateY(-4px)}
+.interest-card .int-icon{font-size:48px;margin-bottom:16px}
+.interest-card .int-num{font-size:40px;font-weight:700;color:#0071e3;margin-bottom:8px}
+.interest-card .int-label{font-size:15px;color:#86868b}
+
+/* ===== 联系我 ===== */
+.contact-section{background:#1d1d1f;padding:64px 40px;text-align:center}
+.contact-inner{max-width:700px;margin:0 auto}
+.contact-section h2{font-size:40px;font-weight:700;color:#fbfbfd;margin-bottom:16px;letter-spacing:-1px}
+.contact-section .contact-sub{font-size:16px;color:#86868b;margin-bottom:40px;line-height:1.8}
+.contact-info-row{display:flex;justify-content:center;gap:48px;margin-bottom:48px;flex-wrap:wrap}
+.contact-info-row .ci-item{font-size:18px;color:#fbfbfd}
+.contact-info-row .ci-item a{color:#0071e3;text-decoration:none}
+.contact-qr{display:flex;justify-content:center;gap:60px;margin-top:32px;flex-wrap:wrap}
+.contact-qr .qr-block{text-align:center}
+.contact-qr .qr-block img{width:140px;height:140px;border-radius:16px;background:#fff;padding:8px}
+.contact-qr .qr-block p{font-size:14px;color:#86868b;margin-top:12px}
+
+/* ===== 动画 ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(40px);transition:all 0.8s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ===== 响应式 ===== */
+@media(max-width:768px){
+  .navbar{padding:0 12px;height:40px}
+  .nav-logo{font-size:13px}
+  .nav-logo .nav-signature{font-size:10px;margin-left:4px}
+  .nav-links{gap:4px}
+  .nav-links a{font-size:9px;padding:3px 6px;border-radius:10px}
+  .hero{padding:80px 16px 36px}
+  .hero h1{font-size:36px}.hero .tagline{font-size:15px}
+  .hero-photo{width:80px;height:80px;margin-bottom:16px}
+  .hero .contact-row{font-size:13px}
+  .section{padding:36px 16px}
+  .section-alt{padding:36px 0}
+  .section-alt .section-inner{padding:0 16px}
+  .section-title{font-size:28px;margin-bottom:8px}
+  .section-subtitle{font-size:15px;margin-bottom:28px}
+  .section-label{font-size:11px;margin-bottom:6px}
+  .about-grid{grid-template-columns:1fr;gap:20px}
+  .about-text{font-size:13px;line-height:1.65}
+  .about-info{padding:20px;border-radius:14px}
+  .about-info .info-row{padding:9px 0;font-size:12px}
+  .exp-carousel-wrap{padding:0 32px}
+  .exp-store-slide{flex:0 0 85%;min-width:240px;margin-right:12px}
+  .exp-arrow{width:40px;height:40px;font-size:22px}
+  .exp-arrow-prev{left:-18px}
+  .exp-arrow-next{right:-18px}
+  .exp-store-card{border-radius:14px}
+  .exp-store-card .card-body{padding:16px 14px 12px}
+  .exp-store-card .card-company{font-size:16px}
+  .exp-store-card .card-role{font-size:12px}
+  .exp-store-card .card-period{font-size:11px;margin-bottom:8px}
+  .exp-store-card .card-desc{font-size:12px;margin-bottom:10px}
+  .exp-store-card .card-bullets li{font-size:11px;padding:3px 0 3px 12px}
+  .exp-store-card .card-bullets li::before{top:9px;width:4px;height:4px}
+  .exp-store-card .card-tag{font-size:10px}
+  .exp-store-card .card-leave{font-size:10px;padding-top:8px}
+  .exp-dots-row{margin-top:16px;gap:6px}
+  .skills-radar-wrap{flex-direction:column;gap:24px}
+  .skills-radar-svg{width:100%;height:auto}
+  .skills-detail-cards{min-width:100%;gap:8px}
+  .skills-detail-cards .sd-card{padding:10px 14px;border-radius:10px;gap:10px}
+  .skills-detail-cards .sd-card .sd-name{font-size:13px}
+  .skills-detail-cards .sd-card .sd-score{font-size:22px;min-width:40px}
+  .sd-card .sd-ring-wrap{width:32px;height:32px}
+  .portfolio-section{padding:36px 0}
+  .portfolio-section .section-inner{padding:0 16px}
+  .portfolio-category{margin-bottom:28px}
+  .portfolio-category h3{font-size:17px}
+  .portfolio-carousel{margin-top:8px}
+  .portfolio-carousel .carousel-slide{flex:0 0 78%;min-width:200px}
+  .portfolio-carousel .carousel-track{gap:10px}
+  .pf-card{border-radius:10px}
+  .pf-arrow{width:34px;height:34px;font-size:16px}
+  .pf-arrows{gap:6px;margin-bottom:2px}
+  .interest-section{padding:36px 16px}
+  .interest-inner{max-width:100%}
+  .interest-header{margin-bottom:24px}
+  .interest-header h2{font-size:28px}
+  .interest-header p{font-size:14px}
+  .interest-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .interest-card{padding:16px 10px;border-radius:12px}
+  .interest-card .int-num{font-size:30px}
+  .interest-card .int-label{font-size:11px}
+  .contact-section{padding:36px 16px}
+  .contact-section h2{font-size:28px}
+  .contact-section .contact-sub{font-size:14px;margin-bottom:24px}
+  .contact-info-row{gap:24px;margin-bottom:24px}
+  .contact-info-row .ci-item{font-size:14px}
+  .contact-qr{gap:32px;margin-top:20px}
+  .contact-qr .qr-block img{width:110px;height:110px}
+  .contact-qr .qr-block p{font-size:12px;margin-top:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav class="navbar">
+  <a href="#" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">蒋凯瑞<span class="nav-signature">永远热忱 永远在路上</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">关于我</a></li>
+    <li><a href="#experience">工作经历</a></li>
+    <li><a href="#skills">核心技能</a></li>
+    <li><a href="#portfolio">作品展示</a></li>
+    <li><a href="#contact">联系我</a></li>
+  </ul>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero">
+  <div class="hero-photo"><img src="resume_images/profile_photo.jpg" alt="蒋凯瑞"></div>
+  <h1>蒋凯瑞</h1>
+  <p class="tagline">品牌文案策划 &amp; 内容营销 · 8年经验</p>
+  <p class="contact-row">
+    <span>📧 573216297@qq.com</span>
+    <span>📍 杭州</span>
+    <span>💼 10-12K/月</span>
+  </p>
+</header>
+
+<!-- ===== 关于我 ===== -->
+<section id="about" class="section">
+  <div class="fade-up">
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">关于我</h2>
+    <p class="section-subtitle">8年品牌文案策划经验，从内容执行到策略规划，一步一个脚印</p>
+  </div>
+  <div class="about-grid fade-up">
+    <div class="about-text">
+      <p>93年，浙江农林大学本科毕业。对生活和工作始终充满激情，具备<strong>良好的自我驱动力与执行力</strong>。拥有出色的文案技能，能根据品牌调性和项目需求，策划不同风格的内容——包括但不限于社媒推文、公众号长文、抖音短视频脚本、品牌宣传视频、产品详情页等。</p>
+      <br>
+      <p>在跨部门协作中，习惯把自己当作<strong>团队的沟通桥梁</strong>，能快速捕捉各部门的核心需求，整合集团资源，确保项目顺利推进。</p>
+      <br>
+      <p>审美与创意能力同样是我的长板。擅长把控公司品宣素材的整体质量，确保每一份产出都能<strong>融合创意与美感</strong>，有效传达品牌信息。</p>
+    </div>
+    <div class="about-info">
+      <div class="info-row"><span class="info-label">性别 / 年龄</span><span class="info-value">男 / 1993年</span></div>
+      <div class="info-row"><span class="info-label">学历</span><span class="info-value">浙江农林大学 · 本科</span></div>
+      <div class="info-row"><span class="info-label">求职意向</span><span class="info-value">品牌文案策划 / 内容营销</span></div>
+      <div class="info-row"><span class="info-label">期望城市</span><span class="info-value">杭州</span></div>
+      <div class="info-row"><span class="info-label">期望薪资</span><span class="info-value">10-12K/月</span></div>
+      <div class="info-row"><span class="info-label">经验年限</span><span class="info-value">8年</span></div>
+      <div class="info-row"><span class="info-label">行业覆盖</span><span class="info-value">数码电子 / 食品 / 游戏 / 社交</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 工作经历（轮播） ===== -->
+<section id="experience" class="section-alt"><div class="section-inner">
+  <div class="fade-up">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title">工作经历</h2>
+    <p class="section-subtitle">从新媒体运营起步，逐渐发展成为品牌策划&amp;内容营销人</p>
+  </div>
+
+  <div class="exp-carousel-wrap fade-up">
+    <button class="exp-arrow exp-arrow-prev" id="expPrev" aria-label="上一个">&lt;</button>
+    <button class="exp-arrow exp-arrow-next" id="expNext" aria-label="下一个">&gt;</button>
+    <div class="exp-store-carousel" id="expCarousel">
+      <div class="exp-store-track" id="expTrack">
+
+      <!-- 甲戌福生 · 食品 -->
+      <div class="exp-store-slide"><div class="exp-store-card">
+        <div class="card-accent" style="background:#f59e0b"></div>
+        <div class="card-body" style="background:linear-gradient(180deg,#fffbeb 0%,#fff 100%)">
+          <span class="card-tag" style="background:#fef3c7;color:#b45309">食品行业</span>
+          <div class="card-company">杭州甲戌福生电子商务</div>
+          <div class="card-role">品牌内容运营</div>
+          <div class="card-period">2025.11 – 2025.12 · 2个月</div>
+          <div class="card-desc">公司成立初期，负责<strong>品牌项目0-1策划</strong>及整体初期运营策略方案的制定。</div>
+          <ul class="card-bullets">
+            <li>品牌定位、品牌故事、差异化策略及运营节奏规划</li>
+          </ul>
+          <div class="card-leave"><b>离开原因</b>：公司刚成立一个多月，战略规划层面需要更资深经验，个人更倾向于具体项目的落地执行。</div>
+        </div>
+      </div></div>
+
+      <!-- 咚咚电商 · 食品 -->
+      <div class="exp-store-slide"><div class="exp-store-card">
+        <div class="card-accent" style="background:#f59e0b"></div>
+        <div class="card-body" style="background:linear-gradient(180deg,#fffbeb 0%,#fff 100%)">
+          <span class="card-tag" style="background:#fef3c7;color:#b45309">食品行业</span>
+          <div class="card-company">杭州咚咚电商科技</div>
+          <div class="card-role">资深品牌策划</div>
+          <div class="card-period">2024.10 – 2025.04 · 7个月</div>
+          <div class="card-desc">杭州新项目团队，承担品牌体系<strong>从0到1搭建</strong>，从品牌定位到内容策略全程主导。</div>
+          <ul class="card-bullets">
+            <li>品牌基建：品牌定位、视觉识别系统、话术体系搭建</li>
+            <li>IP形象策划：市场调研驱动，强化用户记忆点与情感连接</li>
+            <li>新媒体内容策略：选题策划、文案撰写、内容排期全流程</li>
+          </ul>
+          <div class="card-leave"><b>离开原因</b>：4月杭州团队解散。公司为云南本土老牌企业，杭州为新项目团队。</div>
+        </div>
+      </div></div>
+
+      <!-- 非名科技 · 数码电子 -->
+      <div class="exp-store-slide"><div class="exp-store-card">
+        <div class="card-accent" style="background:#0071e3"></div>
+        <div class="card-body" style="background:linear-gradient(180deg,#eff6ff 0%,#fff 100%)">
+          <span class="card-tag" style="background:#e0f0ff;color:#0059b3">数码电子</span>
+          <div class="card-company">非名科技（杭州）</div>
+          <div class="card-role">品牌策划</div>
+          <div class="card-period">2018.11 – 2024.08 · 近6年</div>
+          <div class="card-desc">汽车音响头部企业子公司，沉淀了<strong>垂直市场品牌认知全链路经验</strong>。</div>
+          <ul class="card-bullets">
+            <li>品牌宣传体系：画册、详情页、海报全套物料策划与质控</li>
+            <li>新品营销全案：卖点提炼、竞品分析、Slogan与传播内容输出</li>
+            <li>品牌营销活动：直播大赛（ToB）、有奖竞答（ToC）策划执行</li>
+            <li>跨职能支持：抖音直播、视频素材拍摄、展会策划落地</li>
+          </ul>
+          <div class="card-leave"><b>离开原因</b>：小众市场，随经济及政策原因，杭州公司解散，保留北京总部。</div>
+        </div>
+      </div></div>
+
+      <!-- 妙聚网络 · 游戏 -->
+      <div class="exp-store-slide"><div class="exp-store-card">
+        <div class="card-accent" style="background:#8b5cf6"></div>
+        <div class="card-body" style="background:linear-gradient(180deg,#f5f3ff 0%,#fff 100%)">
+          <span class="card-tag" style="background:#ede9fe;color:#6d28d9">游戏社交</span>
+          <div class="card-company">杭州妙聚网络科技</div>
+          <div class="card-role">品牌策划</div>
+          <div class="card-period">2017.02 – 2018.11 · 近2年</div>
+          <div class="card-desc">接手《斗罗大陆》《热血三国》等多款游戏品牌营销，积累<strong>游戏行业推广经验</strong>。</div>
+          <ul class="card-bullets">
+            <li>产品营销策略：传播策略制定、广告创意与视觉文案输出</li>
+            <li>大型活动：热血三国嘉年华、传奇荣耀现金杯大赛全案执行</li>
+            <li>竞品分析：跟踪竞品市场信息，反哺工作室游戏开发思路</li>
+          </ul>
+        </div>
+      </div></div>
+
+      <!-- 盘丝洞网络 · 社交 -->
+      <div class="exp-store-slide"><div class="exp-store-card">
+        <div class="card-accent" style="background:#f472b6"></div>
+        <div class="card-body" style="background:linear-gradient(180deg,#fdf2f8 0%,#fff 100%)">
+          <span class="card-tag" style="background:#fce7f3;color:#be185d">社交行业</span>
+          <div class="card-company">杭州盘丝洞网络科技</div>
+          <div class="card-role">新媒体运营</div>
+          <div class="card-period">2016.03 – 2017.02 · 近1年</div>
+          <div class="card-desc">职业生涯起点，负责社交产品新媒体内容运营，<strong>从创作到用户运营</strong>奠定实操基础。</div>
+          <ul class="card-bullets">
+            <li>内容创作与用户运营：主题内容产出，App社区活动引导转化</li>
+            <li>自媒体矩阵：公众号、微博、今日头条内容创作与运维</li>
+            <li>爆款内容：今日头条单篇<strong>200万推荐、80万阅读</strong></li>
+            <li>跨界合作：与"大象"品牌联合举办"最美女达人"活动</li>
+          </ul>
+        </div>
+      </div></div>
+
+    </div></div>
+  <div class="exp-dots-row" id="expDots"></div>
+</div></div></section>
+
+<!-- ===== 核心技能（雷达星座图 + 详情卡） ===== -->
+<section id="skills" class="section">
+  <div class="fade-up">
+    <div class="section-label">Skills</div>
+    <h2 class="section-title">核心技能</h2>
+    <p class="section-subtitle">文案 + 创意 + 执行，三位一体的内容能力</p>
+  </div>
+  <div class="skills-radar-wrap fade-up">
+    <!-- 雷达图 -->
+    <svg class="skills-radar-svg" viewBox="0 0 700 600" width="560" height="480">
+      <defs>
+        <radialGradient id="radarGrad" cx="50%" cy="50%">
+          <stop offset="0%" stop-color="#0071e3" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#0071e3" stop-opacity="0.04"/>
+        </radialGradient>
+      </defs>
+      <!-- 背景网格：25% 50% 75% 100% -->
+      <polygon class="radar-grid" points="350,245 397.7,272.5 397.7,327.5 350,355 302.3,327.5 302.3,272.5"/>
+      <polygon class="radar-grid radar-grid-50" points="350,190 445.4,245 445.4,355 350,410 254.6,355 254.6,245"/>
+      <polygon class="radar-grid" points="350,135 493.0,217.5 493.0,382.5 350,465 207.0,382.5 207.0,217.5"/>
+      <polygon class="radar-grid" points="350,80 540.6,190 540.6,410 350,520 159.4,410 159.4,190"/>
+      <!-- 轴线 -->
+      <line class="radar-axis" x1="350" y1="300" x2="350" y2="80"/>
+      <line class="radar-axis" x1="350" y1="300" x2="540.6" y2="190"/>
+      <line class="radar-axis" x1="350" y1="300" x2="540.6" y2="410"/>
+      <line class="radar-axis" x1="350" y1="300" x2="350" y2="520"/>
+      <line class="radar-axis" x1="350" y1="300" x2="159.4" y2="410"/>
+      <line class="radar-axis" x1="350" y1="300" x2="159.4" y2="190"/>
+      <!-- 能力填充区域 -->
+      <polygon class="radar-fill" id="radarPoly"
+        points="350,102 517.7,203.2 512,393.5 350,498 197.5,388 188,206.5"/>
+      <!-- 数据点 -->
+      <circle class="radar-dot" cx="350" cy="102" r="5"/>
+      <circle class="radar-dot" cx="517.7" cy="203.2" r="5"/>
+      <circle class="radar-dot" cx="512" cy="393.5" r="5"/>
+      <circle class="radar-dot" cx="350" cy="498" r="5"/>
+      <circle class="radar-dot" cx="197.5" cy="388" r="5"/>
+      <circle class="radar-dot" cx="188" cy="206.5" r="5"/>
+      <!-- 中心点 -->
+      <circle class="radar-center-dot" cx="350" cy="300" r="5"/>
+      <circle class="radar-ring" cx="350" cy="300" r="32"/>
+      <!-- 标签 -->
+      <text class="radar-label" x="350" y="55">📝 文案能力</text>
+      <text class="radar-pct" x="350" y="94">90%</text>
+      <text class="radar-label" x="585" y="180">🎯 品牌策划</text>
+      <text class="radar-pct" x="530" y="195">88%</text>
+      <text class="radar-label" x="585" y="430">💡 创意能力</text>
+      <text class="radar-pct" x="525" y="393">85%</text>
+      <text class="radar-label" x="350" y="552">🤝 团队协作</text>
+      <text class="radar-pct" x="350" y="500">90%</text>
+      <text class="radar-label" x="120" y="428">🎪 活动策划</text>
+      <text class="radar-pct" x="188" y="392">80%</text>
+      <text class="radar-label" x="115" y="180">📱 新媒体运营</text>
+      <text class="radar-pct" x="176" y="195">85%</text>
+    </svg>
+    <!-- 右侧详情卡片 -->
+    <div class="skills-detail-cards">
+      <div class="sd-card">
+        <span class="sd-icon">📝</span>
+        <div class="sd-info"><div class="sd-name">文案能力</div><div class="sd-desc">多风格撰写 · 品牌调性把控</div></div>
+        <div class="sd-ring-wrap"><svg viewBox="0 0 36 36"><circle class="sd-ring-bg" cx="18" cy="18" r="15"/><circle class="sd-ring-fg" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="9.4"/></svg></div>
+        <span class="sd-score">90</span>
+      </div>
+      <div class="sd-card">
+        <span class="sd-icon">🤝</span>
+        <div class="sd-info"><div class="sd-name">团队协作与执行力</div><div class="sd-desc">跨部门沟通 · 项目推进</div></div>
+        <div class="sd-ring-wrap"><svg viewBox="0 0 36 36"><circle class="sd-ring-bg" cx="18" cy="18" r="15"/><circle class="sd-ring-fg" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="9.4"/></svg></div>
+        <span class="sd-score">90</span>
+      </div>
+      <div class="sd-card">
+        <span class="sd-icon">🎯</span>
+        <div class="sd-info"><div class="sd-name">品牌策划</div><div class="sd-desc">0-1品牌搭建 · 定位策略</div></div>
+        <div class="sd-ring-wrap"><svg viewBox="0 0 36 36"><circle class="sd-ring-bg" cx="18" cy="18" r="15"/><circle class="sd-ring-fg" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="11.3"/></svg></div>
+        <span class="sd-score">88</span>
+      </div>
+      <div class="sd-card">
+        <span class="sd-icon">💡</span>
+        <div class="sd-info"><div class="sd-name">创意能力</div><div class="sd-desc">视觉审美 · 内容创意策划</div></div>
+        <div class="sd-ring-wrap"><svg viewBox="0 0 36 36"><circle class="sd-ring-bg" cx="18" cy="18" r="15"/><circle class="sd-ring-fg" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="14.1"/></svg></div>
+        <span class="sd-score">85</span>
+      </div>
+      <div class="sd-card">
+        <span class="sd-icon">📱</span>
+        <div class="sd-info"><div class="sd-name">新媒体运营</div><div class="sd-desc">社媒矩阵 · 爆款内容</div></div>
+        <div class="sd-ring-wrap"><svg viewBox="0 0 36 36"><circle class="sd-ring-bg" cx="18" cy="18" r="15"/><circle class="sd-ring-fg" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="14.1"/></svg></div>
+        <span class="sd-score">85</span>
+      </div>
+      <div class="sd-card">
+        <span class="sd-icon">🎪</span>
+        <div class="sd-info"><div class="sd-name">活动策划</div><div class="sd-desc">大型活动 · 全案执行</div></div>
+        <div class="sd-ring-wrap"><svg viewBox="0 0 36 36"><circle class="sd-ring-bg" cx="18" cy="18" r="15"/><circle class="sd-ring-fg" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="18.8"/></svg></div>
+        <span class="sd-score">80</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 作品展示（Apple Store 卡片） ===== -->
+<section id="portfolio" class="portfolio-section"><div class="section-inner">
+  <div class="fade-up">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">作品展示</h2>
+    <p class="section-subtitle">涵盖海报/KV、详情页、视频脚本、线下活动、营销策划案等多个维度</p>
+  </div>
+
+  <!-- 线上营销海报 -->
+  <div class="portfolio-category fade-up">
+    <h3>产品营销海报 / 视频脚本</h3>
+    <div class="pf-arrows"><button class="pf-arrow pf-prev" data-carousel="carousel1" aria-label="上一个">&lt;</button><button class="pf-arrow pf-next" data-carousel="carousel1" aria-label="下一个">&gt;</button></div>
+    <div class="portfolio-carousel pf-type-portrait" id="carousel1"><div class="carousel-track" id="track1">
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page8_img11.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page8_img3.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page8_img4.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page8_img5.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page8_img6.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page8_img7.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page8_img8.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page8_img10.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+    </div></div>
+  </div>
+
+  <!-- 主KV -->
+  <div class="portfolio-category fade-up">
+    <h3>主KV / 项目视觉创意</h3>
+    <div class="pf-arrows"><button class="pf-arrow pf-prev" data-carousel="carousel2" aria-label="上一个">&lt;</button><button class="pf-arrow pf-next" data-carousel="carousel2" aria-label="下一个">&gt;</button></div>
+    <div class="portfolio-carousel pf-type-portrait" id="carousel2"><div class="carousel-track" id="track2">
+      <div class="carousel-slide" style="flex:0 0 calc(63% - 41px)"><div class="pf-card"><img src="resume_images/page9_img8.jpeg" style="aspect-ratio:16/9" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page9_img7.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page9_img9.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page9_img2.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page9_img3.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page9_img4.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page9_img5.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page9_img6.jpeg" style="aspect-ratio:9/16" loading="lazy"></div></div>
+    </div></div>
+  </div>
+
+  <!-- 线下活动 -->
+  <div class="portfolio-category fade-up">
+    <h3>线下活动</h3>
+    <div class="pf-arrows"><button class="pf-arrow pf-prev" data-carousel="carousel3" aria-label="上一个">&lt;</button><button class="pf-arrow pf-next" data-carousel="carousel3" aria-label="下一个">&gt;</button></div>
+    <div class="portfolio-carousel pf-type-landscape" id="carousel3"><div class="carousel-track" id="track3">
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page12_img1.jpeg" style="aspect-ratio:16/9" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page12_img2.jpeg" style="aspect-ratio:16/9" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page12_img3.jpeg" style="aspect-ratio:16/9" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page12_img4.jpeg" style="aspect-ratio:16/9" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page12_img5.jpeg" style="aspect-ratio:16/9" loading="lazy"></div></div>
+    </div></div>
+  </div>
+
+  <!-- 内容营销策划案 -->
+  <div class="portfolio-category fade-up">
+    <h3>内容营销策划案</h3>
+    <div class="pf-arrows"><button class="pf-arrow pf-prev" data-carousel="carousel4" aria-label="上一个">&lt;</button><button class="pf-arrow pf-next" data-carousel="carousel4" aria-label="下一个">&gt;</button></div>
+    <div class="portfolio-carousel pf-type-landscape" id="carousel4"><div class="carousel-track" id="track4">
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page13_img1.jpeg" style="aspect-ratio:16/9" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page13_img3.jpeg" style="aspect-ratio:16/9" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page13_new1.png" style="aspect-ratio:16/9" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page13_new2.png" style="aspect-ratio:16/9" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page13_new3.png" style="aspect-ratio:16/9" loading="lazy"></div></div>
+      <div class="carousel-slide"><div class="pf-card"><img src="resume_images/page13_new4.png" style="aspect-ratio:16/9" loading="lazy"></div></div>
+    </div></div>
+  </div>
+</div></section>
+
+<!-- ===== 个人兴趣 ===== -->
+<section class="interest-section"><div class="interest-inner">
+  <div class="interest-header fade-up">
+    <div class="section-label">Personal Interest</div>
+    <h2>个人自媒体兴趣</h2>
+    <p>工作之余持续运营个人自媒体账号，保持对内容创作的敏锐度和热情</p>
+  </div>
+  <div class="interest-grid fade-up">
+    <div class="interest-card"><div class="int-icon">🎵</div><div class="int-num">1.7<span style="font-size:20px">万</span></div><div class="int-label">网易云歌单达人粉丝</div></div>
+    <div class="interest-card"><div class="int-icon">🎧</div><div class="int-num">1.2<span style="font-size:20px">亿次</span></div><div class="int-label">歌单最高播放量</div></div>
+    <div class="interest-card"><div class="int-icon">📱</div><div class="int-num">5000<span style="font-size:20px">+</span></div><div class="int-label">各大自媒体总粉丝量</div></div>
+    <div class="interest-card"><div class="int-icon">📈</div><div class="int-num">1000<span style="font-size:20px">万+</span></div><div class="int-label">内容总阅读量</div></div>
+  </div>
+  <div class="fade-up" style="text-align:center;margin-top:48px;font-size:16px;color:#86868b">目前仍在持续运营中 · 将内容创作的热情延续到工作之外，反过来也反哺了工作中的创意和网感</div>
+</div></section>
+
+<!-- ===== 联系我 ===== -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner fade-up">
+    <h2>期待与您沟通</h2>
+    <p class="contact-sub">我非常珍惜每一次面试的机会，也希望能为您节省宝贵的时间和资源。<br>在线上沟通阶段，我将以最大的诚意和详尽的态度，积极回应您的任何问题。</p>
+    <div class="contact-info-row">
+      <div class="ci-item">📧 <a href="mailto:573216297@qq.com">573216297@qq.com</a></div>
+    </div>
+    <div class="contact-qr">
+      <div class="qr-block"><img src="resume_images/page15_img1.jpeg" alt="微信二维码"><p>微信扫一扫添加好友</p></div>
+      <div class="qr-block"><img src="resume_images/qrcode_portfolio.png" alt="作品集二维码"><p>微信扫一扫看文案集</p></div>
+      <div class="qr-block"><img src="resume_images/qrcode_video.png" alt="视频作品二维码"><p>微信扫一扫查看视频作品</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 脚本 ===== -->
+<script>
+// === 导航栏阴影 ===
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>20) navbar.style.boxShadow='0 1px 8px rgba(0,0,0,0.06)';
+  else navbar.style.boxShadow='none';
+});
+
+// === 导航栏滚动高亮 ===
+const navLinks = document.querySelectorAll('.nav-links a');
+const sections = [...navLinks].map(a=>document.querySelector(a.getAttribute('href')));
+const navObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(a=>a.classList.remove('active'));
+      const idx = sections.indexOf(e.target);
+      if(idx>=0) navLinks[idx].classList.add('active');
+    }
+  });
+},{rootMargin:'-40% 0px -55% 0px',threshold:0});
+sections.forEach(s=>s&&navObs.observe(s));
+
+// === 渐入动画 ===
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+// === 技能雷达图 & 环形进度动画 ===
+const skillsWrap = document.querySelector('.skills-radar-wrap');
+const radarPoly = document.getElementById('radarPoly');
+const radarDots = document.querySelectorAll('.radar-dot');
+const ringCircles = document.querySelectorAll('.sd-ring-fg');
+
+if(radarPoly){
+  // 初始状态：雷达图缩小隐藏
+  const origPoints = radarPoly.getAttribute('points');
+  radarPoly.style.transformOrigin = '350px 300px';
+  radarPoly.style.transform = 'scale(0)';
+  radarPoly.style.opacity = '0';
+  radarDots.forEach(d=>{ d.style.opacity = '0'; d.style.transform = 'scale(0)'; });
+
+  // 环形进度初始 offset（满圈 = 已画完的错觉 &gt; 动画重置）
+  ringCircles.forEach(c=>{ c.style.strokeDashoffset = '94.2'; });
+
+  const skillObserver = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        // 雷达图弹出动画
+        radarPoly.style.transition = 'transform 0.8s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease';
+        radarPoly.style.transform = 'scale(1)';
+        radarPoly.style.opacity = '1';
+        // 数据点依次弹出
+        radarDots.forEach((d,i)=>{
+          setTimeout(()=>{
+            d.style.transition = 'transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease';
+            d.style.transform = 'scale(1)'; d.style.opacity = '1';
+          }, 600 + i*80);
+        });
+        // 环形进度动画
+        ringCircles.forEach((c,i)=>{
+          const targetOffset = parseFloat(c.getAttribute('stroke-dashoffset'));
+          c.style.transition = 'none';
+          c.style.strokeDashoffset = '94.2';
+          setTimeout(()=>{
+            c.style.transition = `stroke-dashoffset 1.2s cubic-bezier(0.25,0.1,0.25,1) ${i*0.1}s`;
+            c.style.strokeDashoffset = targetOffset;
+          }, 300 + i*60);
+        });
+      }
+    })
+  },{threshold:0.3});
+  if(skillsWrap) skillObserver.observe(skillsWrap);
+}
+
+// === 平滑滚动 ===
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    const t=document.querySelector(this.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'})
+  })
+});
+
+// =============================================
+// 通用轮播函数
+// =============================================
+function createCarousel(containerId,trackId,prevId,nextId,dotsId,currentId,totalId){
+  const container = document.getElementById(containerId);
+  const track = document.getElementById(trackId);
+  const prevBtn = document.getElementById(prevId);
+  const nextBtn = document.getElementById(nextId);
+  const dotsContainer = document.getElementById(dotsId);
+  const currentEl = currentId ? document.getElementById(currentId) : null;
+  const totalEl = totalId ? document.getElementById(totalId) : null;
+
+  if(!container||!track) return;
+
+  const slides = track.children;
+  const total = slides.length;
+  let current = 0;
+
+  if(totalEl) totalEl.textContent = total;
+
+  // 创建 dots
+  if(dotsContainer){
+    dotsContainer.innerHTML = '';
+    for(let i=0;i<total;i++){
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot'+(i===0?' active':'');
+      dot.addEventListener('click',()=>goTo(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateDots(idx){
+    if(dotsContainer){
+      dotsContainer.querySelectorAll('.carousel-dot').forEach((d,i)=>{
+        d.classList.toggle('active',i===idx);
+      });
+    }
+  }
+
+  function goTo(idx){
+    if(idx<0) idx=total-1;
+    if(idx>=total) idx=0;
+    current = idx;
+    track.style.transform = `translateX(-${current*100}%)`;
+    updateDots(current);
+    if(currentEl) currentEl.textContent = current+1;
+    updateArrows();
+  }
+
+  function updateArrows(){
+    if(prevBtn) prevBtn.disabled = current===0;
+    if(nextBtn) nextBtn.disabled = current===total-1;
+  }
+
+  if(prevBtn) prevBtn.addEventListener('click',()=>goTo(current-1));
+  if(nextBtn) nextBtn.addEventListener('click',()=>goTo(current+1));
+
+  // 触摸滑动
+  let startX=0,startY=0,isDragging=false;
+  container.addEventListener('touchstart',e=>{
+    startX=e.touches[0].clientX;startY=e.touches[0].clientY;isDragging=false;
+  },{passive:true});
+  container.addEventListener('touchmove',e=>{
+    const dx=e.touches[0].clientX-startX;
+    const dy=e.touches[0].clientY-startY;
+    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>10) isDragging=true;
+  },{passive:true});
+  container.addEventListener('touchend',e=>{
+    if(!isDragging) return;
+    const dx=e.changedTouches[0].clientX-startX;
+    if(dx>50) goTo(current-1);
+    else if(dx<-50) goTo(current+1);
+  });
+
+  // 键盘
+  container.setAttribute('tabindex','0');
+  container.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft'){e.preventDefault();goTo(current-1)}
+    if(e.key==='ArrowRight'){e.preventDefault();goTo(current+1)}
+  });
+
+  updateArrows();
+  goTo(0);
+  return {goTo};
+}
+
+// =============================================
+// 作品轮播函数（一行多张，每次滚一张）
+// =============================================
+function createPortfolioCarousel(carouselId,trackId,prevBtn,nextBtn){
+  const carousel = document.getElementById(carouselId);
+  const track = document.getElementById(trackId);
+  if(!carousel||!track) return;
+
+  const slides = track.children;
+  const total = slides.length;
+
+  // 计算每张 slide 的宽度（含gap）
+  function getSlideWidth(){
+    const firstSlide = slides[0];
+    if(!firstSlide) return 0;
+    return firstSlide.offsetWidth + 20; // 20px gap
+  }
+
+  let current=0;
+  function goTo(idx){
+    if(idx<0) idx=0;
+    const maxIdx = Math.max(0,total - getVisibleSlides());
+    if(idx>maxIdx) idx=maxIdx;
+    current=idx;
+    track.style.transform = `translateX(-${current*getSlideWidth()}px)`;
+    updateArrows();
+  }
+
+  function getVisibleSlides(){
+    if(!carousel) return 3;
+    const w = carousel.offsetWidth;
+    const sw = slides[0]?slides[0].offsetWidth:280;
+    return Math.max(1,Math.floor(w/(sw+20)));
+  }
+
+  function updateArrows(){
+    const maxIdx = Math.max(0,total - getVisibleSlides());
+    if(prevBtn) prevBtn.disabled = current===0;
+    if(nextBtn) nextBtn.disabled = current>=maxIdx;
+  }
+
+  if(prevBtn) prevBtn.addEventListener('click',()=>goTo(current-1));
+  if(nextBtn) nextBtn.addEventListener('click',()=>goTo(current+1));
+  window.addEventListener('resize',()=>goTo(current));
+
+  // 触摸滑动
+  let startX=0,startY=0,isDragging=false;
+  carousel.addEventListener('touchstart',e=>{
+    startX=e.touches[0].clientX;startY=e.touches[0].clientY;isDragging=false;
+  },{passive:true});
+  carousel.addEventListener('touchmove',e=>{
+    const dx=e.touches[0].clientX-startX;
+    const dy=e.touches[0].clientY-startY;
+    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>10) isDragging=true;
+  },{passive:true});
+  carousel.addEventListener('touchend',e=>{
+    if(!isDragging) return;
+    const dx=e.changedTouches[0].clientX-startX;
+    if(dx>50) goTo(current-1);
+    else if(dx<-50) goTo(current+1);
+  });
+
+  updateArrows();
+  return {goTo};
+}
+
+// === 初始化工作经历 Apple Store 轮播 ===
+(function(){
+  const carousel = document.getElementById('expCarousel');
+  const track = document.getElementById('expTrack');
+  const prevBtn = document.getElementById('expPrev');
+  const nextBtn = document.getElementById('expNext');
+  const dotsContainer = document.getElementById('expDots');
+  if(!carousel||!track) return;
+
+  const slides = track.children;
+  const total = slides.length;
+
+  function getSlideWidth(){
+    const first = slides[0];
+    if(!first) return 0;
+    const style = getComputedStyle(first);
+    return first.offsetWidth + parseFloat(style.marginRight||0);
+  }
+
+  function getVisibleSlides(){
+    const w = carousel.offsetWidth;
+    const sw = slides[0]?slides[0].offsetWidth:300;
+    const gap = 24;
+    return Math.max(1, Math.floor(w/(sw+gap)));
+  }
+
+  let current = 0;
+  let pageTotal = 1;
+
+  function updatePageTotal(){
+    const vis = getVisibleSlides();
+    pageTotal = Math.max(1, total - vis + 1);
+  }
+  updatePageTotal();
+
+  // 创建 dots
+  if(dotsContainer){
+    dotsContainer.innerHTML = '';
+    for(let i=0;i<pageTotal;i++){
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot'+(i===0?' active':'');
+      dot.addEventListener('click',()=>goTo(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateDots(idx){
+    if(dotsContainer){
+      dotsContainer.querySelectorAll('.carousel-dot').forEach((d,i)=>{
+        d.classList.toggle('active',i===idx);
+      });
+    }
+  }
+
+  function updateArrows(){
+    if(prevBtn) prevBtn.disabled = current===0;
+    if(nextBtn) nextBtn.disabled = current>=pageTotal-1;
+  }
+
+  function goTo(idx){
+    if(idx<0) idx=0;
+    if(idx>pageTotal-1) idx=pageTotal-1;
+    current = idx;
+    track.style.transform = `translateX(-${current*getSlideWidth()}px)`;
+    updateDots(current);
+    updateArrows();
+  }
+
+  if(prevBtn) prevBtn.addEventListener('click',()=>goTo(current-1));
+  if(nextBtn) nextBtn.addEventListener('click',()=>goTo(current+1));
+  window.addEventListener('resize',()=>{
+    updatePageTotal();
+    // 重新创建 dots
+    if(dotsContainer){
+      dotsContainer.innerHTML = '';
+      for(let i=0;i<pageTotal;i++){
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot'+(i===current?' active':'');
+        const idx = i;
+        dot.addEventListener('click',()=>goTo(idx));
+        dotsContainer.appendChild(dot);
+      }
+    }
+    goTo(Math.min(current, pageTotal-1));
+  });
+
+  // 触摸滑动
+  let startX=0,startY=0,isDragging=false;
+  carousel.addEventListener('touchstart',e=>{
+    startX=e.touches[0].clientX;startY=e.touches[0].clientY;isDragging=false;
+  },{passive:true});
+  carousel.addEventListener('touchmove',e=>{
+    const dx=e.touches[0].clientX-startX;
+    const dy=e.touches[0].clientY-startY;
+    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>10) isDragging=true;
+  },{passive:true});
+  carousel.addEventListener('touchend',e=>{
+    if(!isDragging) return;
+    const dx=e.changedTouches[0].clientX-startX;
+    if(dx>50) goTo(current-1);
+    else if(dx<-50) goTo(current+1);
+  });
+
+  updateArrows();
+})();
+
+// === 初始化作品轮播 ===
+document.querySelectorAll('.portfolio-carousel').forEach(carousel=>{
+  const id = carousel.id;
+  const trackId = 'track'+id.replace('carousel','');
+  const prevBtn = document.querySelector(`.pf-prev[data-carousel="${id}"]`);
+  const nextBtn = document.querySelector(`.pf-next[data-carousel="${id}"]`);
+  if(prevBtn&&nextBtn){
+    createPortfolioCarousel(id,trackId,prevBtn,nextBtn);
+  }
+});
+// === 图片灯箱 ===
+const lightbox = document.createElement('div');
+lightbox.className = 'pf-lightbox';
+lightbox.innerHTML = '<img src="" alt=""><button class="pf-close">×</button>';
+document.body.appendChild(lightbox);
+
+const lbImg = lightbox.querySelector('img');
+const lbClose = lightbox.querySelector('.pf-close');
+
+function openLightbox(src){
+  lbImg.src = src;
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+  setTimeout(()=>{lbImg.src=''},300);
+}
+
+lbClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e=>{ if(e.target===lightbox) closeLightbox(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLightbox(); });
+
+// 委托：所有 pf-card 点击打开灯箱
+document.querySelector('#portfolio').addEventListener('click', e=>{
+  const card = e.target.closest('.pf-card');
+  if(!card) return;
+  const img = card.querySelector('img');
+  if(img) openLightbox(img.src);
+});
+</script>
+</body>
+</html>
