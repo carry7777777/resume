@@ -449,10 +449,7 @@ body{
 }
 /* 微信内引导样式 */
 .wechat-guide{text-align:center;margin-top:16px}
-.wechat-guide-arrow{font-size:15px;color:#07c160;font-weight:600;margin-bottom:10px;animation:bounce 1.5s ease infinite}
-.wechat-guide-dots{display:flex;justify-content:center;gap:6px;margin-bottom:16px}
-.wechat-guide-dots span{width:10px;height:10px;border-radius:50%;background:#d2d2d7;display:block}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.wechat-guide-arrow{font-size:15px;color:#0071e3;font-weight:600;margin-bottom:16px}
 </style>
 </head>
 <body>
@@ -1329,9 +1326,8 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&shareOverlay.class
         </div>
       </div>
       <div class="wechat-guide">
-        <div class="wechat-guide-arrow">👆 点击右上角</div>
-        <div class="wechat-guide-dots"><span></span><span></span><span></span></div>
-        <p class="qr-tip">选择「转发给朋友」或「分享到朋友圈」<br>联系方式见网页最下方</p>
+        <div class="wechat-guide-arrow">点击手机右上角 ···</div>
+        <p class="qr-tip">转发给更多同事浏览<br>联系方式见网页最下方</p>
       </div>
     </div>
   </div>
