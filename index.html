@@ -447,6 +447,12 @@ body{
   .share-float{right:16px;bottom:72px;width:48px;height:48px}
   .share-float svg{width:22px;height:22px}
 }
+/* 微信内引导样式 */
+.wechat-guide{text-align:center;margin-top:16px}
+.wechat-guide-arrow{font-size:15px;color:#07c160;font-weight:600;margin-bottom:10px;animation:bounce 1.5s ease infinite}
+.wechat-guide-dots{display:flex;justify-content:center;gap:6px;margin-bottom:16px}
+.wechat-guide-dots span{width:10px;height:10px;border-radius:50%;background:#d2d2d7;display:block}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 </style>
 </head>
 <body>
@@ -1265,7 +1271,15 @@ document.querySelector('#portfolio').addEventListener('click', e=>{
 document.addEventListener('DOMContentLoaded',()=>{
 const shareFloat = document.getElementById('shareFloat');
 const shareOverlay = document.getElementById('shareOverlay');
-const shareClose = document.getElementById('shareClose');
+
+// 检测是否在微信浏览器中
+const isWechat = /MicroMessenger/i.test(navigator.userAgent);
+
+// 根据环境显示不同内容
+const shareDesktop = document.getElementById('shareDesktop');
+const shareWechat = document.getElementById('shareWechat');
+if(isWechat){ shareDesktop.style.display='none'; shareWechat.style.display='block'; }
+else { shareWechat.style.display='none'; shareDesktop.style.display='block'; }
 
 window.addEventListener('scroll',()=>{
   shareFloat.classList.toggle('show', window.scrollY > 400);
@@ -1277,6 +1291,7 @@ shareFloat.addEventListener('click',()=>{
 });
 
 function closeShare(){ shareOverlay.classList.remove('active'); document.body.style.overflow=''; }
+const shareClose = document.getElementById('shareClose');
 shareClose.addEventListener('click',closeShare);
 shareOverlay.addEventListener('click',e=>{ if(e.target===shareOverlay) closeShare(); });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&shareOverlay.classList.contains('active')) closeShare(); });
@@ -1286,18 +1301,38 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&shareOverlay.class
 <div class="share-overlay" id="shareOverlay">
   <div class="share-card" style="position:relative">
     <button class="share-card-close" id="shareClose">&times;</button>
-    <h3>📤 分享到微信</h3>
-    <p class="share-sub">扫码打开 → 微信里分享给同事</p>
-    <div class="share-preview">
-      <img class="share-preview-avatar" src="resume_images/profile_photo.webp" alt="头像" decoding="async">
-      <div class="share-preview-info">
-        <div class="sp-name">蒋凯瑞 · 品牌文案策划</div>
-        <div class="sp-desc">永远热忱，永远在路上</div>
+    <!-- 桌面版：扫二维码 -->
+    <div id="shareDesktop">
+      <h3>📤 分享到微信</h3>
+      <p class="share-sub">扫码打开 → 微信里分享给同事</p>
+      <div class="share-preview">
+        <img class="share-preview-avatar" src="resume_images/profile_photo.webp" alt="头像" decoding="async">
+        <div class="share-preview-info">
+          <div class="sp-name">蒋凯瑞 · 品牌文案策划</div>
+          <div class="sp-desc">永远热忱，永远在路上</div>
+        </div>
+      </div>
+      <div class="share-qr-wrap">
+        <img src="resume_images/share_qrcode.png" alt="扫码打开简历">
+        <p class="qr-tip">微信扫一扫<br>联系方式见网页最下方</p>
       </div>
     </div>
-    <div class="share-qr-wrap">
-      <img src="resume_images/share_qrcode.png" alt="扫码打开简历">
-      <p class="qr-tip">微信扫一扫<br>联系方式见网页最下方</p>
+    <!-- 微信内版：引导点右上角 -->
+    <div id="shareWechat" style="display:none">
+      <h3>📤 分享给同事</h3>
+      <p class="share-sub">点开右上角「···」选择分享</p>
+      <div class="share-preview">
+        <img class="share-preview-avatar" src="resume_images/profile_photo.webp" alt="头像" decoding="async">
+        <div class="share-preview-info">
+          <div class="sp-name">蒋凯瑞 · 品牌文案策划</div>
+          <div class="sp-desc">永远热忱，永远在路上</div>
+        </div>
+      </div>
+      <div class="wechat-guide">
+        <div class="wechat-guide-arrow">👆 点击右上角</div>
+        <div class="wechat-guide-dots"><span></span><span></span><span></span></div>
+        <p class="qr-tip">选择「转发给朋友」或「分享到朋友圈」<br>联系方式见网页最下方</p>
+      </div>
     </div>
   </div>
 </div>
