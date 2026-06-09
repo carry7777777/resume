@@ -449,9 +449,10 @@ body{
 }
 /* 微信内引导样式 */
 .wechat-guide{text-align:center;margin-top:16px}
-.wechat-guide-arrow{font-size:15px;color:#0071e3;font-weight:600;margin-bottom:16px}
-.wechat-guide-arrow .dots{color:#0071e3;font-weight:700;letter-spacing:2px}
+.wechat-guide-arrow{font-size:15px;color:#07c160;font-weight:600;margin-bottom:16px;animation:bounce 1.5s ease infinite}
+.wechat-guide-arrow .dots{color:#07c160;font-weight:700;letter-spacing:2px}
 .wechat-guide-tip{font-size:13px;color:#0071e3;line-height:1.5}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 </style>
 </head>
 <body>
