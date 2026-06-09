@@ -377,9 +377,85 @@ body{
   .contact-qr .qr-block img{width:110px;height:110px}
   .contact-qr .qr-block p{font-size:12px;margin-top:8px}
 }
+/* ===== 浮动分享按钮 ===== */
+.share-float{
+  position:fixed;right:24px;bottom:80px;z-index:999;
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,#07c160,#06ad56);
+  box-shadow:0 4px 20px rgba(7,193,96,0.35);
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.3s ease,box-shadow 0.3s ease;
+  opacity:0;transform:translateY(20px);pointer-events:none
+}
+.share-float.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.share-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(7,193,96,0.5)}
+.share-float svg{width:24px;height:24px;fill:#fff}
+.share-float .pulse-ring{
+  position:absolute;inset:-4px;border-radius:50%;
+  border:2px solid rgba(7,193,96,0.4);
+  animation:sharePulse 2s ease-out infinite
+}
+@keyframes sharePulse{
+  0%{transform:scale(1);opacity:1}
+  100%{transform:scale(1.6);opacity:0}
+}
+/* ===== 分享弹窗 ===== */
+.share-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.5);
+  z-index:10000;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity 0.3s ease;
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)
+}
+.share-overlay.active{opacity:1;pointer-events:auto}
+.share-card{
+  background:#fff;border-radius:24px;padding:32px 28px 24px;
+  width:90%;max-width:360px;text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,0.2);
+  transform:translateY(20px);transition:transform 0.35s cubic-bezier(0.22,1,0.36,1)
+}
+.share-overlay.active .share-card{transform:translateY(0)}
+.share-card-close{
+  position:absolute;top:12px;right:16px;
+  width:32px;height:32px;border-radius:50%;
+  background:#f5f5f7;border:none;cursor:pointer;
+  font-size:18px;color:#86868b;display:flex;
+  align-items:center;justify-content:center;
+  transition:background 0.2s
+}
+.share-card-close:hover{background:#e8e8ed}
+.share-card h3{font-size:20px;font-weight:700;color:#1d1d1f;margin-bottom:4px}
+.share-card .share-sub{font-size:14px;color:#86868b;margin-bottom:20px}
+.share-preview{
+  background:#fbfbfd;border-radius:16px;padding:20px;
+  display:flex;align-items:center;gap:14px;margin-bottom:20px;
+  border:1px solid #f0f0f0
+}
+.share-preview-avatar{
+  width:52px;height:52px;border-radius:50%;object-fit:cover;
+  border:2px solid #e8e8ed;flex-shrink:0
+}
+.share-preview-info{text-align:left;flex:1;min-width:0}
+.share-preview-info .sp-name{font-size:15px;font-weight:600;color:#1d1d1f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.share-preview-info .sp-desc{font-size:12px;color:#86868b;margin-top:2px}
+.share-qr-wrap{
+  display:flex;flex-direction:column;align-items:center;gap:10px
+}
+.share-qr-wrap img{width:160px;height:160px;border-radius:8px}
+.share-qr-wrap .qr-tip{font-size:13px;color:#86868b;line-height:1.5}
+@media(max-width:768px){
+  .share-float{right:16px;bottom:72px;width:48px;height:48px}
+  .share-float svg{width:22px;height:22px}
+}
 </style>
 </head>
 <body>
+<!-- 浮动分享按钮 -->
+<button class="share-float" id="shareFloat" aria-label="分享到微信" title="分享到微信">
+  <span class="pulse-ring"></span>
+  <svg viewBox="0 0 24 24"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178A1.17 1.17 0 014.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178 1.17 1.17 0 01-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 01.598.082l1.584.926a.272.272 0 00.14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 01-.023-.156.49.49 0 01.201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.952-7.062-6.122zm-2.18 2.955c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982z"/></svg>
+</button>
+<!-- 分享弹窗 -->
 
 <!-- 导航栏 -->
 <nav class="navbar">
@@ -1185,6 +1261,46 @@ document.querySelector('#portfolio').addEventListener('click', e=>{
   const img = card.querySelector('img');
   if(img) openLightbox(img.src);
 });
+// ===== 浮动分享按钮 =====
+const shareFloat = document.getElementById('shareFloat');
+const shareOverlay = document.getElementById('shareOverlay');
+const shareClose = document.getElementById('shareClose');
+
+// 滚动一定距离后显示按钮
+window.addEventListener('scroll',()=>{
+  shareFloat.classList.toggle('show', window.scrollY > 400);
+});
+
+// 打开分享弹窗
+shareFloat.addEventListener('click',()=>{
+  shareOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+});
+
+// 关闭
+function closeShare(){ shareOverlay.classList.remove('active'); document.body.style.overflow=''; }
+shareClose.addEventListener('click',closeShare);
+shareOverlay.addEventListener('click',e=>{ if(e.target===shareOverlay) closeShare(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&shareOverlay.classList.contains('active')) closeShare(); });
 </script>
+<!-- 分享弹窗 -->
+<div class="share-overlay" id="shareOverlay">
+  <div class="share-card" style="position:relative">
+    <button class="share-card-close" id="shareClose">&times;</button>
+    <h3>📤 分享到微信</h3>
+    <p class="share-sub">扫码打开 → 微信内转发为小卡片</p>
+    <div class="share-preview">
+      <img class="share-preview-avatar" src="resume_images/profile_photo.webp" alt="头像" decoding="async">
+      <div class="share-preview-info">
+        <div class="sp-name">蒋凯瑞 · 品牌文案策划</div>
+        <div class="sp-desc">永远热忱，永远在路上</div>
+      </div>
+    </div>
+    <div class="share-qr-wrap">
+      <img src="resume_images/share_qrcode.png" alt="扫码打开简历">
+      <p class="qr-tip">微信扫一扫，在微信内打开<br>转发时即可显示头像小卡片 📇</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
