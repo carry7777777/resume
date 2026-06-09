@@ -1262,26 +1262,25 @@ document.querySelector('#portfolio').addEventListener('click', e=>{
   if(img) openLightbox(img.src);
 });
 // ===== 浮动分享按钮 =====
+document.addEventListener('DOMContentLoaded',()=>{
 const shareFloat = document.getElementById('shareFloat');
 const shareOverlay = document.getElementById('shareOverlay');
 const shareClose = document.getElementById('shareClose');
 
-// 滚动一定距离后显示按钮
 window.addEventListener('scroll',()=>{
   shareFloat.classList.toggle('show', window.scrollY > 400);
 });
 
-// 打开分享弹窗
 shareFloat.addEventListener('click',()=>{
   shareOverlay.classList.add('active');
   document.body.style.overflow = 'hidden';
 });
 
-// 关闭
 function closeShare(){ shareOverlay.classList.remove('active'); document.body.style.overflow=''; }
 shareClose.addEventListener('click',closeShare);
 shareOverlay.addEventListener('click',e=>{ if(e.target===shareOverlay) closeShare(); });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&shareOverlay.classList.contains('active')) closeShare(); });
+});
 </script>
 <!-- 分享弹窗 -->
 <div class="share-overlay" id="shareOverlay">
