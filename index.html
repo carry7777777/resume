@@ -450,6 +450,8 @@ body{
 /* 微信内引导样式 */
 .wechat-guide{text-align:center;margin-top:16px}
 .wechat-guide-arrow{font-size:15px;color:#0071e3;font-weight:600;margin-bottom:16px}
+.wechat-guide-arrow .dots{color:#0071e3;font-weight:700;letter-spacing:2px}
+.wechat-guide-tip{font-size:13px;color:#0071e3;line-height:1.5}
 </style>
 </head>
 <body>
@@ -1326,8 +1328,8 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&shareOverlay.class
         </div>
       </div>
       <div class="wechat-guide">
-        <div class="wechat-guide-arrow">点击手机右上角 ···</div>
-        <p class="qr-tip">转发给更多同事浏览<br>联系方式见网页最下方</p>
+        <div class="wechat-guide-arrow">点击手机右上角 <span class="dots">···</span></div>
+        <p class="wechat-guide-tip">转发给更多同事浏览<br>联系方式见网页最下方</p>
       </div>
     </div>
   </div>
